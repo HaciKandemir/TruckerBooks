@@ -100,46 +100,6 @@ foreach ($player as $key=> $value) {
 </head>
 <body>
 	<canvas id="myChart" width="250" height="100"></canvas>
-	<script>
-		$(document).ready(function () {
-			showGraph();
-		});
-		function showGraph()
-		{
-			var name = ['ocak','şubat','mart','nisan','mayıs','haziran','temmuz','ağustos','aralık','ocak','şubat','mart'];
-			
-			var chartdata = {
-				labels: name,
-				datasets: [
-				<?php foreach ($player as $key => $value) { ?>
-					
-					{
-						label:'<?php echo$value['name']; ?>',
-						borderColor:'#2489db',
-						fill: false,
-						lineTension:0,
-						data: [
-							<?php 
-							foreach ($value['2019'] as $abc ) {
-								echo $abc.",";
-							}
-
-							echo$value['2020']['1']?>,<?php echo$value['2020']['2']?>,<?php echo$value['2020']['3']
-
-							?>
-						]
-					},
-
-				<?php }  ?>
-				],
-			};
-			var ctx = $("#myChart");
-			var chart = new Chart(ctx, {
-				type: 'line',
-				data: chartdata,
-				options: {}
-			});
-		}
-	</script>
+	
 </body>
 </html>
